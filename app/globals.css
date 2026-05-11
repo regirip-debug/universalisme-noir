@@ -323,12 +323,12 @@ button { font-family: inherit; cursor: pointer; }
 
 .hero {
   position: relative;
-  padding: 6px var(--pad) clamp(40px, 5vw, 80px);
+  padding: 24px var(--pad) clamp(40px, 5vw, 80px);
   overflow: hidden;
 }
 .hero__topleft {
   position: absolute;
-  top: 6px;
+  top: 24px;
   left: var(--pad);
   z-index: 5;
   max-width: 280px;
@@ -337,7 +337,7 @@ button { font-family: inherit; cursor: pointer; }
 .hero__topleft .hero__author { margin-bottom: 18px; }
 .hero__topleft .hero__author::before { display: inline-block; }
 @media (max-width: 980px) {
-  .hero__topleft { max-width: none; position: relative; top: auto; left: auto; margin-bottom: 16px; }
+  .hero__topleft { max-width: none; position: relative; top: auto; left: auto; margin-top: 20px; margin-bottom: 16px; }
   .hero__lockup--left { padding-top: 0; }
 }
 
