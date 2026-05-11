@@ -85,3 +85,4 @@ Aucune variable d'environnement requise. Le site est entièrement statique (les 
 
 - Roman *Universalisme noir* — © 2025 Régis Pio · L'Harmattan · ISBN 978-2-336-55770-0
 - Site et code — © 2025 Régis Pio
+
