@@ -20,7 +20,7 @@ export default function PageLivre() {
               flexDirection: "column",
               alignItems: "flex-start",
               gap: 8,
-              marginBottom: 22,
+              marginBottom: 8,
             }}
           >
             <span className="pill">Roman</span>
