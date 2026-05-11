@@ -352,7 +352,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .hero__lockup { position: relative; z-index: 3; }
-.hero__lockup--left { text-align: right; padding-top: 360px; }
+.hero__lockup--left { text-align: right; padding-top: 300px; }
 .hero__lockup--right { text-align: left; }
 .hero__author {
   font-family: var(--f-mono);
@@ -423,8 +423,8 @@ button { font-family: inherit; cursor: pointer; }
 .hero__collage {
   position: relative;
   aspect-ratio: 3 / 5;
-  width: clamp(240px, 28vw, 460px);
-  margin: 0 auto;
+  width: clamp(200px, 23vw, 380px);
+  margin: 20px auto 0;
   z-index: 2;
 }
 .hero__cover {
