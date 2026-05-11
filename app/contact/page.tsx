@@ -5,10 +5,45 @@ import { OrnLines, OrnBlock } from "../_components/Ornaments";
 
 export default function PageContact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    const form = e.currentTarget;
+    const get = (name: string) =>
+      (form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)?.value ?? "";
+
+    const data = {
+      nom: get("nom"),
+      organisation: get("organisation"),
+      email: get("email"),
+      telephone: get("telephone"),
+      typeStructure: get("typeStructure"),
+      format: get("format"),
+      date: get("date"),
+      public: get("public"),
+      message: get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Erreur serveur");
+      setSubmitted(true);
+    } catch {
+      setError(
+        "Une erreur est survenue. Merci de réessayer ou d’écrire directement à devis@universalismenoir.com"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -31,7 +66,7 @@ export default function PageContact() {
               margin: 0,
             }}
           >
-            Merci !
+            Merci !
           </h1>
           <p
             style={{
@@ -100,35 +135,35 @@ export default function PageContact() {
                 <span>Nom &amp; prénom</span>
                 <span className="required">requis</span>
               </div>
-              <input type="text" required minLength={2} placeholder="Marie Dupont" />
+              <input name="nom" type="text" required minLength={2} placeholder="Marie Dupont" />
             </div>
             <div className="field">
               <div className="field__label">
                 <span>Structure / institution</span>
                 <span className="required">requis</span>
               </div>
-              <input type="text" required placeholder="Lycée Jean-Jaurès" />
+              <input name="organisation" type="text" required placeholder="Lycée Jean-Jaurès" />
             </div>
             <div className="field">
               <div className="field__label">
                 <span>Email</span>
                 <span className="required">requis</span>
               </div>
-              <input type="email" required placeholder="marie@exemple.fr" />
+              <input name="email" type="email" required placeholder="marie@exemple.fr" />
             </div>
             <div className="field">
               <div className="field__label">
                 <span>Téléphone</span>
                 <span>facultatif</span>
               </div>
-              <input type="tel" placeholder="06 00 00 00 00" />
+              <input name="telephone" type="tel" placeholder="06 00 00 00 00" />
             </div>
             <div className="field">
               <div className="field__label">
                 <span>Type de structure</span>
                 <span className="required">requis</span>
               </div>
-              <select required defaultValue="">
+              <select name="typeStructure" required defaultValue="">
                 <option value="" disabled>
                   Sélectionner…
                 </option>
@@ -144,7 +179,7 @@ export default function PageContact() {
                 <span>Format souhaité</span>
                 <span className="required">requis</span>
               </div>
-              <select required defaultValue="">
+              <select name="format" required defaultValue="">
                 <option value="" disabled>
                   Sélectionner…
                 </option>
@@ -159,14 +194,14 @@ export default function PageContact() {
                 <span>Date envisagée</span>
                 <span>facultatif</span>
               </div>
-              <input type="date" />
+              <input name="date" type="date" />
             </div>
             <div className="field">
               <div className="field__label">
                 <span>Public estimé</span>
                 <span>facultatif</span>
               </div>
-              <input type="number" min={0} placeholder="80" />
+              <input name="public" type="number" min={0} placeholder="80" />
             </div>
             <div className="field field--full">
               <div className="field__label">
@@ -174,24 +209,35 @@ export default function PageContact() {
                 <span className="required">requis · 20–5000 car.</span>
               </div>
               <textarea
+                name="message"
                 required
                 minLength={20}
                 maxLength={5000}
                 placeholder="Contexte, public, attentes, contraintes de calendrier…"
               />
             </div>
-            <button type="submit" className="form__submit">
-              <span>Envoyer la demande</span>
-              <span
-                className="arrow"
-                style={{
-                  width: 12,
-                  height: 12,
-                  borderRight: "1px solid currentColor",
-                  borderTop: "1px solid currentColor",
-                  transform: "rotate(45deg)",
-                }}
-              />
+            {error && (
+              <p
+                className="field field--full"
+                style={{ color: "var(--red)", fontFamily: "var(--f-mono)", fontSize: 13, margin: 0 }}
+              >
+                {error}
+              </p>
+            )}
+            <button type="submit" className="form__submit" disabled={loading}>
+              <span>{loading ? "Envoi en cours…" : "Envoyer la demande"}</span>
+              {!loading && (
+                <span
+                  className="arrow"
+                  style={{
+                    width: 12,
+                    height: 12,
+                    borderRight: "1px solid currentColor",
+                    borderTop: "1px solid currentColor",
+                    transform: "rotate(45deg)",
+                  }}
+                />
+              )}
             </button>
           </form>
 
