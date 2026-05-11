@@ -367,7 +367,7 @@ button { font-family: inherit; cursor: pointer; }
 .hero__title {
   font-family: var(--f-display);
   font-weight: 400;
-  font-size: clamp(40px, 7vw, 115px);
+  font-size: clamp(56px, 9vw, 150px);
   line-height: 0.86;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -421,8 +421,7 @@ button { font-family: inherit; cursor: pointer; }
 .hero__collage {
   position: relative;
   aspect-ratio: 3 / 5;
-  width: clamp(180px, 22vw, 380px);
-  max-height: 54vh;
+  width: clamp(240px, 28vw, 460px);
   margin: 0 auto;
   z-index: 2;
 }
