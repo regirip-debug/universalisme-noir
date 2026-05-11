@@ -172,11 +172,14 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--ink);
 }
 .nav__brand-mark {
-  width: 30px; height: 42px;
+  width: 30px; height: 30px;
   border: 1px solid var(--ink);
   display: grid; place-items: center;
-  overflow: hidden;
-  flex-shrink: 0;
+  font-family: var(--f-display);
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  background: var(--ink);
+  color: var(--paper);
 }
 .nav__links {
   display: flex;
