@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const LINKS = [
   { route: "livre", href: "/", label: "Le livre" },
@@ -12,9 +11,7 @@ export default function Nav({ route }: { route: string }) {
   return (
     <nav className="nav">
       <Link href="/" className="nav__brand">
-        <span className="nav__brand-mark">
-          <Image src="/assets/cover.jpg" alt="Universalisme noir" width={30} height={42} style={{ objectFit: "cover", display: "block", width: "100%", height: "100%" }} />
-        </span>
+        <span className="nav__brand-mark">RP</span>
         <span>Régis Pio</span>
       </Link>
       <div className="nav__links">
