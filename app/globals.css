@@ -352,7 +352,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .hero__lockup { position: relative; z-index: 3; }
-.hero__lockup--left { text-align: right; padding-top: 210px; }
+.hero__lockup--left { text-align: right; padding-top: 360px; }
 .hero__lockup--right { text-align: left; }
 .hero__author {
   font-family: var(--f-mono);
