@@ -8,7 +8,7 @@
   --paper-2: #f3f1ec;
   --ink: #0e0e0e;
   --ink-soft: #2a2a26;
-  --rule: rgba(14, 14, 14, 0.18);
+  --rule: rgba(14, 14, 14, 0.18)
   --rule-soft: rgba(14, 14, 14, 0.08);
 
   --red: #da3f2b;
@@ -323,16 +323,16 @@ button { font-family: inherit; cursor: pointer; }
 
 .hero {
   position: relative;
-  padding: clamp(40px, 6vw, 80px) var(--pad) clamp(60px, 8vw, 120px);
+  padding: clamp(16px, 2vw, 28px) var(--pad) clamp(40px, 5vw, 80px);
   overflow: hidden;
 }
 .hero__topleft {
   position: relative;
   z-index: 4;
   max-width: 280px;
-  margin-bottom: clamp(24px, 4vw, 56px);
+  margin-bottom: clamp(8px, 1vw, 16px);
 }
-.hero__topleft .hero__meta { margin-top: clamp(40px, 6vw, 90px) !important; }
+.hero__topleft .hero__meta { margin-top: 8px !important; }
 .hero__topleft .hero__author { margin-bottom: 18px; }
 .hero__topleft .hero__author::before { display: inline-block; }
 @media (max-width: 980px) {
@@ -420,8 +420,8 @@ button { font-family: inherit; cursor: pointer; }
 /* hero collage panel (centered) */
 .hero__collage {
   position: relative;
-  aspect-ratio: 5 / 8;
-  width: clamp(280px, 32vw, 540px);
+  aspect-ratio: 3 / 5;
+  width: clamp(240px, 28vw, 460px);
   margin: 0 auto;
   z-index: 2;
 }
