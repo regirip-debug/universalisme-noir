@@ -176,6 +176,7 @@ export default function PageLivre() {
           </h2>
         </div>
         <div className="buy">
+          {/* CARTE 1 – Papier */}
           <div className="buy__card">
             <div className="label">Édition papier</div>
             <div className="price">
@@ -188,6 +189,8 @@ export default function PageLivre() {
               Commander le papier <span className="arrow" />
             </a>
           </div>
+
+          {/* CARTE 2 – Numérique */}
           <div className="buy__card is-accent">
             <div className="label">Édition numérique</div>
             <div className="price">
@@ -196,8 +199,26 @@ export default function PageLivre() {
             <div className="desc">
               Téléchargement immédiat. EPUB et PDF sans DRM, lisibles sur liseuse, tablette et smartphone.
             </div>
-            <a className="btn" href="https://www.editions-harmattan.fr/catalogue/livre/universalisme-noir/79640" target="_blank" rel="noopener">
-              Commander le numérique <span className="arrow" />
+            <a className="btn" href="https://liseuse.harmattan.fr/9782336557700" target="_blank" rel="noopener">
+              Lire l&apos;extrait / commander <span className="arrow" />
+            </a>
+          </div>
+
+          {/* CARTE 3 – Conférences */}
+          <div className="buy__card is-conference">
+            <div className="label">Conférences &amp; interventions</div>
+            <div className="price">
+              Sur devis
+              <em>tarif personnalisé</em>
+            </div>
+            <ul className="feature-list">
+              <li>Conférence grand public ou universitaire</li>
+              <li>Table ronde &amp; débat littéraire</li>
+              <li>Intervention en milieu scolaire</li>
+              <li>Dédicace &amp; rencontre auteur</li>
+            </ul>
+            <a className="btn" href="/contact">
+              Demander un devis <span className="arrow" />
             </a>
           </div>
         </div>
