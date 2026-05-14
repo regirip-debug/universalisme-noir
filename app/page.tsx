@@ -8,7 +8,7 @@ export default function PageLivre() {
       <section className="hero">
         <div className="hero__lines">
           <span /><span /><span /><span /><span /><span />
-        </div>
+        </div
         <div className="hero__topleft">
           <div className="hero__author" style={{ marginBottom: 18 }}>
             Régis Pio · Auteur, conférencier
@@ -37,7 +37,7 @@ export default function PageLivre() {
               gap: 10,
             }}
           >
-            <a className="btn" href="https://www.editions-harmattan.fr" target="_blank" rel="noopener">
+            <a className="btn" href="https://www.editions-harmattan.fr/catalogue/livre/universalisme-noir/79640" target="_blank" rel="noopener">
               Commander le livre <span className="arrow" />
             </a>
             <a className="btn btn--ghost" href="#extrait">
@@ -184,7 +184,7 @@ export default function PageLivre() {
             <div className="desc">
               Format broché, 226 pages. Édité par L&apos;Harmattan dans la collection Rue des Écoles / Littérature.
             </div>
-            <a className="btn" href="https://www.editions-harmattan.fr" target="_blank" rel="noopener">
+            <a className="btn" href="https://www.editions-harmattan.fr/catalogue/livre/universalisme-noir/79640" target="_blank" rel="noopener">
               Commander le papier <span className="arrow" />
             </a>
           </div>
@@ -196,7 +196,7 @@ export default function PageLivre() {
             <div className="desc">
               Téléchargement immédiat. EPUB et PDF sans DRM, lisibles sur liseuse, tablette et smartphone.
             </div>
-            <a className="btn" href="https://www.editions-harmattan.fr" target="_blank" rel="noopener">
+            <a className="btn" href="https://www.editions-harmattan.fr/catalogue/livre/universalisme-noir/79640" target="_blank" rel="noopener">
               Commander le numérique <span className="arrow" />
             </a>
           </div>
