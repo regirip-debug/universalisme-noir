@@ -14,105 +14,10 @@ export const metadata: Metadata = {
   },
 };
 
-"use client";
-
-import { useState } from "react";
+import Script from "next/script";
 import { OrnLines, OrnBlock } from "../_components/Ornaments";
 
 export default function PageContact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-
-    const form = e.currentTarget;
-    const get = (name: string) =>
-      (form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)?.value ?? "";
-
-    const data = {
-      nom: get("nom"),
-      organisation: get("organisation"),
-      email: get("email"),
-      telephone: get("telephone"),
-      typeStructure: get("typeStructure"),
-      format: get("format"),
-      date: get("date"),
-      public: get("public"),
-      message: get("message"),
-    };
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error("Erreur serveur");
-      setSubmitted(true);
-    } catch {
-      setError(
-        "Une erreur est survenue. Merci de réessayer ou d’écrire directement à devis@universalismenoir.com"
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (submitted) {
-    return (
-      <div
-        data-screen-label="04 Contact"
-        style={{ minHeight: "60vh", display: "grid", placeItems: "center", padding: "120px 24px" }}
-      >
-        <div style={{ maxWidth: 640, textAlign: "center" }}>
-          <div className="bracket" style={{ color: "var(--accent)", marginBottom: 24 }}>
-            Demande envoyée
-          </div>
-          <h1
-            style={{
-              fontFamily: "var(--f-display)",
-              fontSize: "clamp(56px, 8vw, 120px)",
-              lineHeight: 0.9,
-              letterSpacing: "-0.02em",
-              textTransform: "uppercase",
-              margin: 0,
-            }}
-          >
-            Merci !
-          </h1>
-          <p
-            style={{
-              fontFamily: "var(--f-serif)",
-              fontSize: 19,
-              lineHeight: 1.5,
-              marginTop: 24,
-              color: "var(--ink-soft)",
-            }}
-          >
-            Votre demande de devis a bien été envoyée. Vous recevrez une réponse dans les jours qui viennent.
-          </p>
-          <button className="btn" onClick={() => setSubmitted(false)} style={{ marginTop: 32 }}>
-            Nouvelle demande{" "}
-            <span
-              className="arrow"
-              style={{
-                width: 12,
-                height: 12,
-                borderRight: "1px solid currentColor",
-                borderTop: "1px solid currentColor",
-                transform: "rotate(45deg)",
-              }}
-            />
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div data-screen-label="04 Contact">
       <section className="contact-hero" style={{ position: "relative", overflow: "hidden" }}>
@@ -145,117 +50,17 @@ export default function PageContact() {
 
       <div className="container">
         <div className="contact-grid">
-          <form className="form" onSubmit={onSubmit}>
-            <div className="field">
-              <div className="field__label">
-                <span>Nom &amp; prénom</span>
-                <span className="required">requis</span>
-              </div>
-              <input name="nom" type="text" required minLength={2} placeholder="Marie Dupont" />
-            </div>
-            <div className="field">
-              <div className="field__label">
-                <span>Structure / institution</span>
-                <span className="required">requis</span>
-              </div>
-              <input name="organisation" type="text" required placeholder="Lycée Jean-Jaurès" />
-            </div>
-            <div className="field">
-              <div className="field__label">
-                <span>Email</span>
-                <span className="required">requis</span>
-              </div>
-              <input name="email" type="email" required placeholder="marie@exemple.fr" />
-            </div>
-            <div className="field">
-              <div className="field__label">
-                <span>Téléphone</span>
-                <span>facultatif</span>
-              </div>
-              <input name="telephone" type="tel" placeholder="06 00 00 00 00" />
-            </div>
-            <div className="field">
-              <div className="field__label">
-                <span>Type de structure</span>
-                <span className="required">requis</span>
-              </div>
-              <select name="typeStructure" required defaultValue="">
-                <option value="" disabled>
-                  Sélectionner…
-                </option>
-                <option>Lycée</option>
-                <option>Université</option>
-                <option>Entreprise</option>
-                <option>Institution publique</option>
-                <option>Autre</option>
-              </select>
-            </div>
-            <div className="field">
-              <div className="field__label">
-                <span>Format souhaité</span>
-                <span className="required">requis</span>
-              </div>
-              <select name="format" required defaultValue="">
-                <option value="" disabled>
-                  Sélectionner…
-                </option>
-                <option>Conférence</option>
-                <option>Table ronde</option>
-                <option>Masterclass</option>
-                <option>À discuter</option>
-              </select>
-            </div>
-            <div className="field">
-              <div className="field__label">
-                <span>Date envisagée</span>
-                <span>facultatif</span>
-              </div>
-              <input name="date" type="date" />
-            </div>
-            <div className="field">
-              <div className="field__label">
-                <span>Public estimé</span>
-                <span>facultatif</span>
-              </div>
-              <input name="public" type="number" min={0} placeholder="80" />
-            </div>
-            <div className="field field--full">
-              <div className="field__label">
-                <span>Message</span>
-                <span className="required">requis · 20–5000 car.</span>
-              </div>
-              <textarea
-                name="message"
-                required
-                minLength={20}
-                maxLength={5000}
-                placeholder="Contexte, public, attentes, contraintes de calendrier…"
-              />
-            </div>
-            {error && (
-              <p
-                className="field field--full"
-                style={{ color: "var(--red)", fontFamily: "var(--f-mono)", fontSize: 13, margin: 0 }}
-              >
-                {error}
-              </p>
-            )}
-            <button type="submit" className="form__submit" disabled={loading}>
-              <span>{loading ? "Envoi en cours…" : "Envoyer la demande"}</span>
-              {!loading && (
-                <span
-                  className="arrow"
-                  style={{
-                    width: 12,
-                    height: 12,
-                    borderRight: "1px solid currentColor",
-                    borderTop: "1px solid currentColor",
-                    transform: "rotate(45deg)",
-                  }}
-                />
-              )}
-            </button>
-          </form>
+          <div className="form">
+            <iframe
+              data-tally-src="https://tally.so/embed/5BeKgb?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              loading="lazy"
+              width="100%"
+              height="200"
+              style={{ border: "none" }}
+              title="Demande de devis"
+            ></iframe>
+            <Script src="https://tally.so/widgets/embed.js" strategy="lazyOnload" />
+          </div>
 
           <aside className="contact-side">
             <div className="contact-side__block">
