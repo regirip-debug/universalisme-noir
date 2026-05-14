@@ -4,8 +4,8 @@ const LINKS = [
   { route: "livre", href: "/", label: "Le livre" },
   { route: "recit", href: "/#extrait", label: "Le récit" },
   { route: "conferences", href: "/conferences", label: "Conférences" },
-  { route: "apropos", href: "/apropos", label: "À propos" },
   { route: "acheter", href: "/#acheter", label: "Tarifs" },
+  { route: "apropos", href: "/apropos", label: "À propos" },
   { route: "contact", href: "/contact", label: "Contact" },
 ];
 
