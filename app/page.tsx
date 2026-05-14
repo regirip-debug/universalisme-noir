@@ -40,7 +40,7 @@ export default function PageLivre() {
             <a className="btn" href="https://www.editions-harmattan.fr/catalogue/livre/universalisme-noir/79640" target="_blank" rel="noopener">
               Commander le livre <span className="arrow" />
             </a>
-            <a className="btn btn--ghost" href="#extrait">
+            <a className="btn btn--ghost" href="https://liseuse.harmattan.fr/9782336557700" target="_blank" rel="noopener">
               Lire l&apos;extrait <span className="arrow" />
             </a>
           </div>
