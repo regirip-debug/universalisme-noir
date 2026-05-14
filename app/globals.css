@@ -660,7 +660,7 @@ button { font-family: inherit; cursor: pointer; }
 /* acheter ------------------------------------ */
 .buy {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   max-width: var(--max);
   margin: 0 auto;
@@ -716,6 +716,55 @@ button { font-family: inherit; cursor: pointer; }
   color: white;
 }
 .buy__card.is-accent .btn:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+
+.buy__card.is-conference {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-left: 4px solid var(--accent);
+}
+.buy__card.is-conference .label { color: var(--ink-soft); }
+.buy__card.is-conference .price {
+  font-family: var(--f-slab);
+  font-size: clamp(28px, 3vw, 44px);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 16px 0;
+  color: var(--ink);
+}
+.buy__card.is-conference .price em {
+  display: block;
+  font-family: var(--f-mono);
+  font-style: normal;
+  font-size: 0.45em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  vertical-align: baseline;
+  margin-left: 0;
+  margin-top: 4px;
+}
+.buy__card.is-conference .feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.buy__card.is-conference .feature-list li {
+  font-family: var(--f-serif);
+  font-size: 15px;
+  color: var(--ink-soft);
+  padding-left: 18px;
+  position: relative;
+}
+.buy__card.is-conference .feature-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 12px;
+}
 
 .isbn-strip {
   max-width: var(--max);
