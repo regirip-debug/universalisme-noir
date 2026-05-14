@@ -2,8 +2,75 @@ import Image from "next/image";
 import { OrnLines, OrnBlock } from "./_components/Ornaments";
 
 export default function PageLivre() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Book",
+        "@id": "https://www.universalismenoir.com/#book",
+        "name": "Universalisme Noir",
+        "author": {
+          "@type": "Person",
+          "@id": "https://www.universalismenoir.com/#author",
+          "name": "Régis Pio",
+          "url": "https://www.universalismenoir.com/apropos",
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "L'Harmattan",
+          "url": "https://www.editions-harmattan.fr",
+        },
+        "datePublished": "2025",
+        "isbn": "978-2-336-55770-0",
+        "inLanguage": "fr",
+        "numberOfPages": 226,
+        "genre": "Fiction / Roman",
+        "description":
+          "Du quartier au monde, comment penser l'universalisme depuis l'expérience des diasporas noires en France ?",
+        "url": "https://www.universalismenoir.com",
+        "image": "https://www.universalismenoir.com/assets/cover.jpg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "21.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://www.editions-harmattan.fr/catalogue/livre/universalisme-noir/79640",
+            "name": "Édition papier",
+          },
+          {
+            "@type": "Offer",
+            "price": "15.99",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://liseuse.harmattan.fr/9782336557700",
+            "name": "Édition numérique",
+          },
+        ],
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.universalismenoir.com/#author",
+        "name": "Régis Pio",
+        "url": "https://www.universalismenoir.com/apropos",
+        "jobTitle": "Auteur, fondateur d'Horizons Communs",
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.universalismenoir.com/#website",
+        "url": "https://www.universalismenoir.com",
+        "name": "Universalisme Noir",
+        "inLanguage": "fr",
+      },
+    ],
+  };
+
   return (
     <div data-screen-label="01 Le livre">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* HERO */}
       <section className="hero">
         <div className="hero__lines">
