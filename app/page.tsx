@@ -165,7 +165,7 @@ export default function PageLivre() {
       </section>
 
       {/* ACHETER */}
-      <section className="section hairline-top">
+      <section className="section hairline-top" id="acheter">
         <OrnBlock className="orn-block-tr" color="blue" skew={1} />
         <div className="section__head">
           <div className="section__num">
