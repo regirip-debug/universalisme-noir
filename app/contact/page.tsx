@@ -1,3 +1,19 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contacter Régis Pio pour une conférence, une intervention ou une dédicace. Formulaire de contact direct.",
+  alternates: {
+    canonical: "https://www.universalismenoir.com/contact",
+  },
+  openGraph: {
+    title: "Contact — Régis Pio",
+    description: "Contacter Régis Pio pour une conférence ou une intervention.",
+    url: "https://www.universalismenoir.com/contact",
+  },
+};
+
 "use client";
 
 import { useState } from "react";
