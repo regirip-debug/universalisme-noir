@@ -77,7 +77,7 @@ export default function PageLivre() {
           <span /><span /><span /><span /><span /><span />
         </div>
         <div className="hero__topleft">
-          <div className="hero__author" style={{ marginBottom: 18 }}>
+          <div className="hero__author" style={{ marginBottom: 64 }}>
             Régis Pio · Auteur, conférencier
           </div>
           <div
