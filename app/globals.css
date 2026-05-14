@@ -599,29 +599,27 @@ button { font-family: inherit; cursor: pointer; }
 
 .recit__body p {
   font-family: var(--f-serif);
-  font-size: clamp(18px, 1.4vw, 22px);
-  line-height: 1.55;
-  margin: 0 0 1.2em;
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.45;
+  margin: 0 0 0.85em;
   color: var(--ink);
   text-wrap: pretty;
 }
 .recit__body p:first-child::first-letter {
   font-family: var(--f-slab);
-  font-size: 5.4em;
-  float: left;
+  ffont-size: 4.2em;  float: left;
   line-height: 0.85;
   margin: 0.05em 0.12em -0.05em 0;
   color: var(--accent);
 }
 
 .pullquote {
-  margin: 48px 0;
-  padding: 36px 0 36px 36px;
+  mmargin: 28px 0;
+  padding: 22px 0 22px 28px;
   border-left: 6px solid var(--accent);
   font-family: var(--f-display);
-  font-size: clamp(28px, 3vw, 44px);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.05;  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--ink);
   position: relative;
@@ -632,8 +630,7 @@ button { font-family: inherit; cursor: pointer; }
   top: -16px;
   left: 18px;
   font-family: var(--f-slab);
-  font-size: 80px;
-  color: var(--accent);
+  fonfont-size: 58px;color: var(--accent);
   line-height: 0.8;
 }
 
