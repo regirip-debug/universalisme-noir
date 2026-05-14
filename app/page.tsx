@@ -8,7 +8,7 @@ export default function PageLivre() {
       <section className="hero">
         <div className="hero__lines">
           <span /><span /><span /><span /><span /><span />
-        </div
+        </div>
         <div className="hero__topleft">
           <div className="hero__author" style={{ marginBottom: 18 }}>
             Régis Pio · Auteur, conférencier
